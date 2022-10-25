@@ -156,7 +156,9 @@ class App {
 
     // Render workout on map as marker
     this.renderWorkoutMarker(workout);
+
     // Render workout on the list
+    this._renderWorkout(workout);
 
     // Clear input fields
     inputDistance.value =
@@ -166,7 +168,7 @@ class App {
         '';
   }
 
-  renderWorkoutMarker(workout) {
+  _renderWorkoutMarker(workout) {
     L.marker(workout.coords)
       .addTo(this.#map)
       .bindPopup(
@@ -180,6 +182,10 @@ class App {
       )
       .setPopupContent('workout')
       .openPopup();
+  }
+
+  _renderWorkout(workout) {
+    
   }
 }
 
