@@ -125,7 +125,6 @@ a:visited {
 
   /* Match height and activity boxes */
   height: 9.25rem;
-  transition: all 0.5s, transform 1ms;
 }
 
 .form.hidden {
@@ -134,6 +133,10 @@ a:visited {
   padding: 0 2.25rem;
   margin-bottom: 0;
   opacity: 0;
+}
+
+.form--transition {
+  transition: all 0.5s, transform 1ms;
 }
 
 .form__row {
