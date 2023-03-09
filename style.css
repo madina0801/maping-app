@@ -88,6 +88,8 @@ a:visited {
   font-size: 1.7rem;
   font-weight: 600;
   grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
 }
 
 .workout__details {
@@ -220,4 +222,24 @@ a:visited {
 }
 .cycling-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--1);
+}
+
+/* Button */
+.reset__button {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  padding-block: 5px;
+  border: none;
+  border-radius: 9px;
+  background-color: #9d0208;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.5s ease-in-out;
+  text-transform: uppercase;
+}
+
+.reset__button:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow: 1px 3px 1px 1px #370617;
 }
