@@ -244,3 +244,21 @@ a:visited {
   color: rgba(255, 255, 255, 0.9);
   box-shadow: 1px 3px 1px 1px #370617;
 }
+
+.workout__btn--edit,
+.workout__btn--delete {
+  background: var(--color-dark--2);
+  border: 2px solid var(--color-dark--1);
+  margin-left: 4rem;
+  padding: 0.25rem 1rem;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.25s;
+}
+.workout__btn--edit:hover,
+.workout__btn--edit:active, 
+.workout__btn--delete:hover, 
+.workout__btn--delete:active {
+  /* transform: scale(0.95); */
+  box-shadow: 1px 3px 1px 1px var(--color-dark--1);
+}

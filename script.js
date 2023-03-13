@@ -15,9 +15,8 @@ class Workout {
     // prettier-ignore
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-    this.description = `${this.type[0].toUpperCase()}${this.type.slice(1)} on ${
-      months[this.date.getMonth()]
-    } ${this.date.getDate()}`
+    this.description = `${this.type[0].toUpperCase()}${this.type.slice(1)} on ${months[this.date.getMonth()]
+      } ${this.date.getDate()}`
   }
 
   click() {
@@ -94,6 +93,17 @@ class App {
     inputType.addEventListener('change', this._toggleElevationField);
 
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+
+    // containerWorkouts.addEventListener("click", (e) => {
+    //   const editBtn = e.target.closest(".workout__btn--edit");
+    //   if (!editBtn) this._moveToPopup(e);
+    //   else {
+    //     const workoutEl = e.target.closest(".workout");
+    //     if (!workoutEl) return;
+    //     this._editWorkout(workoutEl);
+    //     console.log(workoutEl);
+    //   }
+    // });
   }
 
   _getPosition() {
@@ -139,9 +149,9 @@ class App {
   _hideForm() {
     // Empty inputs
     inputDistance.value =
-    inputDuration.value =
-    inputCadence.value =
-    inputElevation.value =
+      inputDuration.value =
+      inputCadence.value =
+      inputElevation.value =
       '';
 
     form.classList.toggle('hidden');
@@ -226,11 +236,14 @@ class App {
   _renderWorkout(workout) {
     let html = `
     <li class="workout workout--${workout.type}" data-id="${workout.id}">
-          <h2 class="workout__title">${workout.description}</h2>
+          <h2 class="workout__title">
+            ${workout.description}
+            <span class="workout__btn--edit">🖋</span>
+            <span class="workout__btn--delete">🗑</span>
+          </h2>
           <div class="workout__details">
-            <span class="workout__icon">${
-              workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'
-            }</span>
+            <span class="workout__icon">${workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'
+      }</span>
             <span class="workout__value">${workout.distance}</span>
             <span class="workout__unit">km</span>
           </div>
@@ -278,7 +291,7 @@ class App {
   _moveToPopup(e) {
     const workoutEl = e.target.closest('.workout');
 
-    if(!workoutEl) return;
+    if (!workoutEl) return;
 
     const workout = this.#workouts.find(work => work.id === workoutEl.dataset.id);
 
@@ -300,7 +313,7 @@ class App {
   _getLocalStorage() {
     const data = JSON.parse(localStorage.getItem('workouts'));
 
-    if(!data) return;
+    if (!data) return;
 
     this.#workouts = data;
 
